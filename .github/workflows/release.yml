@@ -37,15 +37,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: install nix
-        uses: cachix/install-nix-action@v31
+      - name: install rust
+        uses: dtolnay/rust-toolchain@stable
         with:
-          extra_nix_config: nar-buffer-size = 536870912
-          install_url: https://nixos.org/nix/install
-          nix_path: nixpkgs=channel:nixos-stable
+          targets: ${{ matrix.target }}
 
       - name: build
-        run: nix-shell shell.nix --run "cargo build --release --target ${{ matrix.target }}"
+        run: cargo build --release --target ${{ matrix.target }}
 
       - name: package release
         shell: bash
