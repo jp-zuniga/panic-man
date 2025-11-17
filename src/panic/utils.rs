@@ -50,3 +50,15 @@ pub fn parse_grade(s: &str) -> Result<f64, String> {
         Err(format!("grade must be between 0 and 100, got {value}."))
     }
 }
+
+pub fn print_result(header: &str, grade: &Grade) {
+    let avg = get_final(grade);
+
+    println!("{header}:");
+    println!("  Final average: {:.2}", avg);
+    println!("  Grade breakdown:");
+    println!("    C1: {:.2}", grade.first);
+    println!("    C2: {:.2}", grade.second);
+    println!("    C3: {:.2}", grade.third);
+    println!();
+}

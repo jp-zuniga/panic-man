@@ -3,7 +3,7 @@ use clap::Parser;
 use panic_man::panic::calc::calc_target;
 use panic_man::panic::cli::PanicCli;
 use panic_man::panic::data::Input;
-use panic_man::panic::utils::get_final;
+use panic_man::panic::utils::print_result;
 
 fn main() {
     let args = PanicCli::parse();
@@ -16,9 +16,6 @@ fn main() {
     let need = calc_target(&input, &args.minimum);
     let want = calc_target(&input, &args.target);
 
-    println!("{:#?}", need);
-    println!("{:?}", get_final(&need));
-
-    println!("{:#?}", want);
-    println!("{:?}", get_final(&want));
+    print_result("Need", &need);
+    print_result("Want", &want);
 }
