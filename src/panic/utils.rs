@@ -1,10 +1,10 @@
 use super::{Grade, PanicCli};
 
-pub fn get_final(g: Grade) -> f32 {
+pub fn get_final(g: Grade) -> f64 {
     (g.first + g.second + g.third) / 3.0
 }
 
-pub fn get_current(p: &PanicCli) -> f32 {
+pub fn get_current(p: &PanicCli) -> f64 {
     if let Some(x) = p.second {
         (p.first + x) / 3.0
     } else {
@@ -12,7 +12,7 @@ pub fn get_current(p: &PanicCli) -> f32 {
     }
 }
 
-pub fn get_missing(p: &PanicCli, current: &f32, minimum: &f32) -> f32 {
+pub fn get_missing(p: &PanicCli, current: &f64, minimum: &f64) -> f64 {
     if let Some(_) = p.second {
         (minimum - current) * 3.0
     } else {
@@ -20,7 +20,7 @@ pub fn get_missing(p: &PanicCli, current: &f32, minimum: &f32) -> f32 {
     }
 }
 
-pub fn mk_new_grade(p: &PanicCli, missing: &f32) -> Grade {
+pub fn mk_new_grade(p: &PanicCli, missing: &f64) -> Grade {
     if let Some(x) = p.second {
         Grade {
             first: p.first,
