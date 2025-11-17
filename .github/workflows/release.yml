@@ -78,7 +78,6 @@ jobs:
     name: release build
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
 
     permissions:
       contents: write
