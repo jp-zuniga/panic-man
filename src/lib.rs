@@ -1,1 +1,4 @@
-pub mod panic;
+mod panic;
+
+pub use panic::run;
+pub use panic::cli::PanicCli;

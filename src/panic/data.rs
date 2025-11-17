@@ -1,12 +1,12 @@
 #[derive(Debug)]
-pub struct Grade {
-    pub first: f64,
-    pub second: f64,
-    pub third: f64,
+pub(crate) struct Grade {
+    pub(crate) first: f64,
+    pub(crate) second: f64,
+    pub(crate) third: f64,
 }
 
 #[derive(Debug)]
-pub struct Input {
-    pub first: f64,
-    pub second: Option<f64>,
+pub(crate) struct Input {
+    pub(crate) first: f64,
+    pub(crate) second: Option<f64>,
 }

@@ -1,13 +1,13 @@
 use super::data::{Grade, Input};
 
-pub const MIN_TOTAL: f64 = 70.0;
-pub const DEFAULT_TARGET: f64 = 85.0;
+pub(crate) const MIN_TOTAL: f64 = 70.0;
+pub(crate) const DEFAULT_TARGET: f64 = 85.0;
 
-pub fn get_final(g: &Grade) -> f64 {
+pub(crate) fn get_final(g: &Grade) -> f64 {
     (g.first + g.second + g.third) / 3.0
 }
 
-pub fn get_current(i: &Input) -> f64 {
+pub(crate) fn get_current(i: &Input) -> f64 {
     if let Some(x) = i.second {
         (i.first + x) / 3.0
     } else {
@@ -15,7 +15,7 @@ pub fn get_current(i: &Input) -> f64 {
     }
 }
 
-pub fn get_missing(i: &Input, current: &f64, target: &f64) -> f64 {
+pub(crate) fn get_missing(i: &Input, current: &f64, target: &f64) -> f64 {
     if let Some(_) = i.second {
         (target - current) * 3.0
     } else {
@@ -23,7 +23,7 @@ pub fn get_missing(i: &Input, current: &f64, target: &f64) -> f64 {
     }
 }
 
-pub fn mk_new_grade(i: &Input, missing: &f64) -> Grade {
+pub(crate) fn mk_new_grade(i: &Input, missing: &f64) -> Grade {
     if let Some(x) = i.second {
         Grade {
             first: i.first,
@@ -39,7 +39,7 @@ pub fn mk_new_grade(i: &Input, missing: &f64) -> Grade {
     }
 }
 
-pub fn parse_grade(s: &str) -> Result<f64, String> {
+pub(crate) fn parse_grade(s: &str) -> Result<f64, String> {
     let value = s
         .parse()
         .map_err(|_| format!("`{s}` is not a valid number."))?;
@@ -51,7 +51,7 @@ pub fn parse_grade(s: &str) -> Result<f64, String> {
     }
 }
 
-pub fn print_result(header: &str, grade: &Grade) {
+pub(crate) fn print_result(header: &str, grade: &Grade) {
     let avg = get_final(grade);
 
     println!("{header}:");

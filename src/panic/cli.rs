@@ -8,17 +8,17 @@ use super::utils::{DEFAULT_TARGET, MIN_TOTAL, parse_grade};
 pub struct PanicCli {
     /// Nota mínima para pasar el curso (0-100).
     #[arg(short, long, default_value_t = MIN_TOTAL, value_parser = parse_grade)]
-    pub minimum: f64,
+    pub(crate) minimum: f64,
 
     /// Nota final deseada (0-100).
     #[arg(short, long, default_value_t = DEFAULT_TARGET, value_parser = parse_grade)]
-    pub target: f64,
+    pub(crate) target: f64,
 
     /// Nota del primer corte (0-100).
     #[arg(short, long, value_parser = parse_grade)]
-    pub first: f64,
+    pub(crate) first: f64,
 
     /// Nota del segundo corte (0-100). Opcional.
     #[arg(short, long, value_parser = parse_grade)]
-    pub second: Option<f64>,
+    pub(crate) second: Option<f64>,
 }
