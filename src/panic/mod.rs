@@ -4,7 +4,7 @@ pub mod calc;
 pub mod utils;
 
 pub const MIN_TOTAL: f64 = 70.0;
-pub const DEFAULT_DECENT: f64 = 85.0;
+pub const DEFAULT_TARGET: f64 = 85.0;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -15,8 +15,8 @@ pub struct PanicCli {
     #[arg(short = 's', long = "second")]
     second: Option<f64>,
 
-    #[arg(short = 'd', long = "decent")]
-    decent: Option<f64>,
+    #[arg(short = 't', long = "target")]
+    target: Option<f64>,
 }
 
 #[derive(Debug)]
