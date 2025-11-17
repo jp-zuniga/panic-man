@@ -18,15 +18,15 @@ jobs:
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             ext: ""
-          - os: ubuntu-latest
-            target: x86_64-unknown-linux-musl
-            ext: ""
-          - os: macos-latest
-            target: x86_64-apple-darwin
-            ext: ""
-          - os: macos-latest
-            target: aarch64-apple-darwin
-            ext: ""
+          # - os: ubuntu-latest
+          #   target: x86_64-unknown-linux-musl
+          #   ext: ""
+          # - os: macos-latest
+          #   target: x86_64-apple-darwin
+          #   ext: ""
+          # - os: macos-latest
+          #   target: aarch64-apple-darwin
+          #   ext: ""
           - os: windows-latest
             target: x86_64-pc-windows-msvc
             ext: ".exe"
@@ -42,6 +42,7 @@ jobs:
         with:
           extra_nix_config: nar-buffer-size = 536870912
           install_url: https://nixos.org/nix/install
+          nix_path: nixpkgs=channel:nixos-stable
 
       - name: build
         run: nix-shell shell.nix --run "cargo build --release --target ${{ matrix.target }}"
