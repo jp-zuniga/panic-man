@@ -65,7 +65,7 @@ jobs:
             tar czf "${ARCHIVE}" -C "target/${TARGET}/release" "${BIN_NAME}${EXT}"
           fi
 
-          sha256sum $ARCHIVE > CHECKSUM
+          sha256sum $ARCHIVE > $CHECKSUM
 
       - name: upload artifact
         uses: actions/upload-artifact@v5
