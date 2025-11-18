@@ -2,7 +2,7 @@
     authors = ["Joaquín Zúñiga"]
     edition = "2024"
     name    = "panic-man"
-    version = "0.2.1"
+    version = "0.2.2"
 
 [dependencies]
     clap         = { version = "4.5.52", features = ["derive"] }
